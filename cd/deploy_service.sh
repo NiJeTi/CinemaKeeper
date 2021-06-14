@@ -28,6 +28,7 @@ fi
 # Create new container and run it
 docker pull $IMAGE_NAME
 docker run -d \
+    --restart unless-stopped \
     --name $CONTAINER_NAME \
     -e DOTNET_ENVIRONMENT=Production \
     -v "$PWD/appsettings.Production.json:/app/appsettings.Production.json" \
